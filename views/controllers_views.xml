@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="test_template" name="Test Template">
+            <h2>HTML Forms</h2>
+
+            <form action="/test/receive" method="post">
+                <label for="fname">First name:</label>
+                <input type="text" id="fname" name="fname" value="John"/> <br/><br/>
+                <label for="lname">Last name:</label>
+                <input type="text" id="lname" name="lname" value="Doe"/><br/>
+                <input type="submit" value="Submit"/>
+            </form>
+
+            <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+        </template>
+
+    </data>
+</odoo>
