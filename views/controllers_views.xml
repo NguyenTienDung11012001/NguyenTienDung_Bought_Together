@@ -3,17 +3,40 @@
     <data>
 
         <template id="test_template" name="Test Template">
-            <h2>HTML Forms</h2>
-
-            <form action="/test/receive" method="post">
-                <label for="fname">First name:</label>
-                <input type="text" id="fname" name="fname" value="John"/> <br/><br/>
-                <label for="lname">Last name:</label>
-                <input type="text" id="lname" name="lname" value="Doe"/><br/>
-                <input type="submit" value="Submit"/>
+            <form method="post">
+                <div class="form-group">
+                    <label for="fullname">Name</label>
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <input type="text" class="form-control" name="name" id="fullname"
+                           placeholder="Type your name here"/>
+                </div>
+                <div class="row">
+                    <div class="form-group col">
+                        <label for="age">Age</label>
+                        <input type="number" name="age" class="form-control" id="age"
+                               placeholder="Your age"/>
+                    </div>
+                    <div class="form-group col">
+                        <label for="gender">Gender</label>
+                        <select class="form-control" name="gender" id="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="note">Description:</label>
+                    <textarea class="form-control" id="note" name="note" rows="3"
+                              placeholder="Tell something about you"></textarea>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4"></div>
+                    <button type="submit" class="col-4 btn btn-primary mt-3 mb-3">Send</button>
+                </div>
             </form>
 
-            <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
         </template>
 
     </data>
