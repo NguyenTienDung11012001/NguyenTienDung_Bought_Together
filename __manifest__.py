@@ -24,7 +24,10 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/controllers_views.xml',
+        'security/ir.model.access.csv',
+        'views/access_token_view.xml',
+        'views/shopify_product_view.xml',
+        'views/shopify_order_view.xml',
+        'wizard/fetch_shopify_view.xml',
     ],
 }

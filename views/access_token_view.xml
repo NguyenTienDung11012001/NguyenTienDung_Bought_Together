@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="access_token_form_view" model="ir.ui.view">
+            <field name="name">access.token.form</field>
+            <field name="model">access.token</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="redirect_home_app" type="object" class="oe_stat_button" icon="fa-globe icon">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Go to</span>
+                                    <span class="o_stat_text">Home app</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="shop_name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="shop_url"/>
+                                <field name="access_token"/>
+                            </group>
+                            <group>
+                                <field name="currency"/>
+                                <field name="email"/>
+                                <field name="country_name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="access_token_tree_view" model="ir.ui.view">
+            <field name="name">.access.token.tree</field>
+            <field name="model">access.token</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+                    <field name="shop_name"/>
+                    <field name="shop_url"/>
+                    <field name="access_token"/>
+                    <field name="currency"/>
+                    <field name="country_name"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--        <record id="access_token_search_view" model="ir.ui.view">-->
+        <!--            <field name="name">.access_token.search</field>-->
+        <!--            <field name="model">.access_token</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search string="ModelTitle">-->
+        <!--                    <group expand="1" string="Group By">-->
+        <!--                        <filter string="Example Field" name="example_field" domain="[]"-->
+        <!--                                context="{'group_by':'example_field'}"/>-->
+        <!--                    </group>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="access_token_act_window" model="ir.actions.act_window">
+            <field name="name">Access Token</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">access.token</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    There is no examples click here to add new Access Token.
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="oath2_ex_root"
+                  name="Shopify Shop"
+                  sequence="30"/>
+
+        <menuitem id="oath2_ex_menu"
+                  name="Data"
+                  parent="oath2_ex_root"
+                  sequence="1"/>
+
+        <menuitem id="access_token_menu"
+                  name="Access Token"
+                  parent="oath2_ex_menu"
+                  action="access_token_act_window"
+                  sequence="1"/>
+
+    </data>
+</odoo>

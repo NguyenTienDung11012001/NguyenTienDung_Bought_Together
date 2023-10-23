@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_access_token,access.access.token,model_access_token,,1,1,1,1
+access_shopify_product,access.shopify.product,model_shopify_product,,1,1,1,1
+access_shopify_order,access.shopify.order,model_shopify_order,,1,1,1,1
+access_shopify_fetch,access.shopify.fetch,model_fetch_shopify_wizard,,1,1,1,1
