@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="xero_token_form_view" model="ir.ui.view">
+            <field name="name">xero.token.form.view</field>
+            <field name="model">xero.token</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="reconnect_xero" string="Reconnect Xero" type="object" class="btn-primary"/>
+                        <button name="post_invoices" string="Post Invoices to Xero" type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="state" decoration-danger="state == 'disconnected'" decoration-success="state == 'connected'"/>
+                            <field name="access_token" style="max-width: 100px"/>
+                            <field name="refresh_token"/>
+                            <field name="access_token_time_out"/>
+                            <field name="refresh_token_time_out"/>
+                            <field name="shopify_id"/>
+                            <field name="tenant_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="xero_token_view_tree" model="ir.ui.view">
+            <field name="name">xero.token.tree.view</field>
+            <field name="model">xero.token</field>
+            <field name="arch" type="xml">
+                <tree string="Xero Token">
+                    <field name="state"/>
+                    <field name="access_token"/>
+                    <field name="refresh_token"/>
+                    <field name="access_token_time_out"/>
+                    <field name="refresh_token_time_out"/>
+                    <field name="shopify_id"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

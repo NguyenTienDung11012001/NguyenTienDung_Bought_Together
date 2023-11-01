@@ -9,14 +9,12 @@ class ProductController(http.Controller):
         val = request.jsonrequest
         model = request.env['shopify.product']
         shop = request.env['access.token'].search([('shop_url', '=', shop_url)])
+
         model.sudo().create({
             'product_id': val.get('id'),
-            'title': val.get('title'),
-            'body_html': val.get('body_html'),
-            'vendor': val.get('vendor'),
-            'product_type': val.get('product_type'),
-            'status': val.get('status'),
-            'shop_url_id': shop.id
+            'name': val.get('title'),
+            'price': val.get('variants')[0]['price'],
+            'shop_id': shop.id
         })
 
         return '{"response": "OK"}'
@@ -25,14 +23,11 @@ class ProductController(http.Controller):
     def test_shopify_update(self, shop_url):
         val = request.jsonrequest
         shop = request.env['access.token'].search([('shop_url', '=', shop_url)])
-        product = request.env['shopify.product'].search([('product_id', '=', val['id']), ('shop_url_id', '=', shop.id)])
+        product = request.env['shopify.product'].search([('product_id', '=', val['id']), ('shop_id', '=', shop.id)])
         if product:
             product.sudo().write({
-                'title': val.get('title'),
-                'body_html': val.get('body_html'),
-                'vendor': val.get('vendor'),
-                'product_type': val.get('product_type'),
-                'status': val.get('status'),
+                'name': val.get('title'),
+                'price': val.get('variants')[0]['price'],
             })
 
         return '{"response": "OK"}'
@@ -41,7 +36,7 @@ class ProductController(http.Controller):
     def test_shopify_delete(self, shop_url):
         val = request.jsonrequest
         shop = request.env['access.token'].search([('shop_url', '=', shop_url)])
-        product = request.env['shopify.product'].search([('product_id', '=', val['id']), ('shop_url_id', '=', shop.id)])
+        product = request.env['shopify.product'].search([('product_id', '=', val['id']), ('shop_id', '=', shop.id)])
         if product:
             product.sudo().unlink()
 

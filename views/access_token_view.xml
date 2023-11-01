@@ -7,12 +7,30 @@
             <field name="model">access.token</field>
             <field name="arch" type="xml">
                 <form string="ModelTitle">
+                    <header>
+                        <button name="connect_xero" string="Connect Xero" type="object" class="btn-primary"/>
+                    </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
                             <button name="redirect_home_app" type="object" class="oe_stat_button" icon="fa-globe icon">
                                 <div class="o_field_widget o_stat_info">
                                     <span class="o_stat_text">Go to</span>
                                     <span class="o_stat_text">Home app</span>
+                                </div>
+                            </button>
+                            <button name="view_products" type="object" class="oe_stat_button" icon="fa-star">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Products</span>
+                                </div>
+                            </button>
+                            <button name="view_orders" type="object" class="oe_stat_button" icon="fa-list">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Orders</span>
+                                </div>
+                            </button>
+                            <button name="view_xero" type="object" class="oe_stat_button" icon="fa-paperclip">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Xero Token</span>
                                 </div>
                             </button>
                         </div>
@@ -66,7 +84,7 @@
         <!--        </record>-->
 
         <record id="access_token_act_window" model="ir.actions.act_window">
-            <field name="name">Access Token</field>
+            <field name="name">Shopify Shop</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">access.token</field>
             <field name="view_mode">tree,form</field>
@@ -87,7 +105,7 @@
                   sequence="1"/>
 
         <menuitem id="access_token_menu"
-                  name="Access Token"
+                  name="Shop"
                   parent="oath2_ex_menu"
                   action="access_token_act_window"
                   sequence="1"/>

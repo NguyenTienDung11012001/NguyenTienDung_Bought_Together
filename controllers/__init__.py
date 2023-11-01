@@ -2,4 +2,5 @@
 
 from . import product_controller
 from . import order_controller
-from . import controllers
+from . import connect_shopify
+from . import connect_xero

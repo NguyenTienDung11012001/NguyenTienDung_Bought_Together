@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <form string="Fetch data from Shopify shop">
                     <group>
-                        <field name="shop_url"/>
+                        <field name="shop_id"/>
                         <field name="data"/>
                     </group>
                     <group>
@@ -30,7 +30,6 @@
         <record id="fetch_data_act_window" model="ir.actions.act_window">
             <field name="name">Fetch data</field>
             <field name="res_model">fetch.shopify.wizard</field>
-<!--            <field name="binding_model_id" ref="model_res_partner"/>-->
             <field name="view_mode">form</field>
             <field name="target">new</field>
             <field name="view_id" ref="fetch_shopify_wizard_view"/>
@@ -45,7 +44,7 @@
                   name="Fetch data"
                   parent="fetch_data_root_menu"
                   action="fetch_data_act_window"
-                  sequence="1"/> 
+                  sequence="1"/>
 
     </data>
 </odoo>

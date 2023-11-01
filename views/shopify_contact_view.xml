@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="shopify_contact_view_form" model="ir.ui.view">
+            <field name="name">shopify_contact_view_form</field>
+            <field name="model">shopify.contact</field>
+            <field name="arch" type="xml">
+                <form string="Contact">
+                    <sheet>
+                        <div class="oe-title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="shopify_contact_id"/>
+                                <field name="xero_contact_id"/>
+                                <field name="shop_id"/>
+                            </group>
+                            <group>
+                                <field name="phone"/>
+                                <field name="email"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="shopify_contact_view_tree" model="ir.ui.view">
+            <field name="name">shopify_contact_view_tree</field>
+            <field name="model">shopify.contact</field>
+            <field name="arch" type="xml">
+                <tree string="Contact">
+                    <field name="shopify_contact_id"/>
+                    <field name="name"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                    <field name="xero_contact_id"/>
+                    <field name="shop_id"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

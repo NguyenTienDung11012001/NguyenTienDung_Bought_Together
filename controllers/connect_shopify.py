@@ -1,3 +1,4 @@
+import odoo.odoo.http
 from odoo import http
 import werkzeug
 import shopify
@@ -6,7 +7,6 @@ from odoo.http import route, request
 
 
 class ShopifyAPI(http.Controller):
-
     @route('/test-shopify', auth='public', type='http')
     def test_shopify(self, **kwargs):
         # Setup session
@@ -46,8 +46,8 @@ class ShopifyAPI(http.Controller):
             session = shopify.Session(shop_url, api_version, access_token)
             shopify.ShopifyResource.activate_session(session)
 
-            # Create Webhook
-            address = 'https://a856-116-97-240-10.ngrok-free.app'
+            # Manage Webhook
+            address = 'https://f081-116-97-240-10.ngrok-free.app'
             webhook = shopify.Webhook.find()
 
             # Destroy webhook because address changed
@@ -62,6 +62,14 @@ class ShopifyAPI(http.Controller):
             topic = 'orders'
             events = ['create', 'updated', 'cancelled']
             self.create_webhook(self, address, shop_url, topic, events)
+
+            for wh in shopify.Webhook.find():
+                print(f'''
+                        -----------------------------------------
+                        topic: {wh.topic}
+                        address: {wh.address}
+                        private_metafield_namespaces: {wh.private_metafield_namespaces}
+                ''')
 
             # Save access token to db and redirect to form view
             model = request.env['access.token']
@@ -83,7 +91,8 @@ class ShopifyAPI(http.Controller):
                     'access_token': access_token
                 })
 
-            return request.redirect(f'web#id={at_id}&cids=1&menu_id=292&action=402&model=access.token&view_type=form')
+            # return request.redirect(f'web#id={at_id}&cids=1&menu_id=292&action=402&model=access.token&view_type=form')
+            return request.redirect(f'web#cids={at_id}&action=475&model=access.token&view_type=list&menu_id=357')
         except Exception as e:
             print(str(e))
             print(traceback.format_exc())
@@ -92,13 +101,15 @@ class ShopifyAPI(http.Controller):
     @staticmethod
     def create_webhook(self, address, shop_url, topic, events):
         for e in events:
-            hook = self.set_hook(address, shop_url, topic, e)
+            hook = self.get_hook(address, shop_url, topic, e)
             shopify.Webhook.create(hook)
 
     @staticmethod
-    def set_hook(address, shop_url, topic, method):
+    def get_hook(address, shop_url, topic, method):
         return {
             'topic': f'{topic}/{method}',
             'address': f'{address}/test-shopify/{shop_url}/{topic}/{method}',
             'format': 'json'
         }
+
+

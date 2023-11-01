@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "test_controller",
+    'name': "Oath2-ex",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -27,7 +27,9 @@
         'security/ir.model.access.csv',
         'views/access_token_view.xml',
         'views/shopify_product_view.xml',
+        'views/shopify_contact_view.xml',
         'views/shopify_order_view.xml',
+        'views/xero_token_view.xml',
         'wizard/fetch_shopify_view.xml',
     ],
 }
