@@ -74,5 +74,4 @@ class XeroAPI(http.Controller):
         # }
         #
         # response = requests.get(url='https://api.xero.com/api.xro/2.0/Invoices', headers=headers)
-        return request.redirect(
-            f'web#id={kwargs["state"]}&cids=1&menu_id=357&action=475&model=access.token&view_type=form')
+        return request.redirect('/')

@@ -91,8 +91,7 @@ class ShopifyAPI(http.Controller):
                     'access_token': access_token
                 })
 
-            # return request.redirect(f'web#id={at_id}&cids=1&menu_id=292&action=402&model=access.token&view_type=form')
-            return request.redirect(f'web#cids={at_id}&action=475&model=access.token&view_type=list&menu_id=357')
+            return request.redirect('/')
         except Exception as e:
             print(str(e))
             print(traceback.format_exc())
