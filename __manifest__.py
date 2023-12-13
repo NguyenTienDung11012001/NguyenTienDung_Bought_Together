@@ -30,6 +30,12 @@
         'views/shopify_contact_view.xml',
         'views/shopify_order_view.xml',
         'views/xero_token_view.xml',
+        'views/templates.xml',
         'wizard/fetch_shopify_view.xml',
     ],
+    'assets': {
+        'oath2_ex.js_package_assets': [
+            'oath2_ex/static/js/index.js',
+        ],
+    }
 }

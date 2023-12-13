@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <template id="sample_app_template">
+            &lt;!DOCTYPE html&gt;
+            <head>
+                <title>Bought Together</title>
+                <link rel="shortcut icon" sizes="196x196" href="/oath2_ex/static/img/logo.jpeg"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit|Be Vietnam Pro|Inter"/>
+            </head>
+            <div id="app"/>
+
+            <script>
+                window.app_settings = <t t-raw="app_settings"/>
+            </script>
+            <!-- use in local instead assets (ctrl + f5) refresh code-->
+            <script type="text/javascript" src="/oath2_ex/static/js/index.js"/>
+            <!-- ##-->
+            <!-- use in server, restart server refresh code-->
+            <!-- <t t-call-assets="oath2_ex.js_package_assets"/>-->
+        </template>
+    </data>
+</odoo>

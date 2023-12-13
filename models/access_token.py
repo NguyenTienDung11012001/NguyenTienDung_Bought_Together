@@ -6,12 +6,14 @@ class ModelName(models.Model):
     _name = 'access.token'
     _description = 'Access token to shopify shop'
 
-    shop_name = fields.Char('Name', compute='_compute_name_shop')
+    shop_name = fields.Char('Name', compute='_compute_name_shop', store=True)
     shop_url = fields.Char('Shop_url')
     access_token = fields.Char('Access Token')
     currency = fields.Char('Currency')
     country_name = fields.Char('Country')
     email = fields.Char('Email')
+    shop_status = fields.Boolean(string='Status', default=True)
+    customization_setting = fields.Text(string='Customization')
 
 
     @api.depends('shop_url')

@@ -63,14 +63,6 @@ class ShopifyAPI(http.Controller):
             events = ['create', 'updated', 'cancelled']
             self.create_webhook(self, address, shop_url, topic, events)
 
-            for wh in shopify.Webhook.find():
-                print(f'''
-                        -----------------------------------------
-                        topic: {wh.topic}
-                        address: {wh.address}
-                        private_metafield_namespaces: {wh.private_metafield_namespaces}
-                ''')
-
             # Save access token to db and redirect to form view
             model = request.env['access.token']
             val = model.sudo().search([('shop_url', '=', shop_url)])

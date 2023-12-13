@@ -8,3 +8,4 @@ access_shopify_fetch,access.shopify.fetch,model_fetch_shopify_wizard,,1,1,1,1
 access_fetch_history,access.fetch.history,model_fetch_history,,1,1,1,1
 access_xero_token,access.xero.token,model_xero_token,,1,1,1,1
 access_xero_post_history,access.xero.post.history,model_xero_post_history,,1,1,1,1
+access_bt_widget,access.bt.widget,model_bt_widget,,1,1,1,1

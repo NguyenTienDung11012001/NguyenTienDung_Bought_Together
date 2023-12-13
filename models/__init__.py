@@ -8,3 +8,4 @@ from . import shopify_contact
 from . import fetch_history
 from . import xero_token
 from . import xero_post_history
+from . import bt_widget
