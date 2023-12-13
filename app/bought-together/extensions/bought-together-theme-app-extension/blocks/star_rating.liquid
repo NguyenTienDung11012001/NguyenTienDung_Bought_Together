@@ -1,0 +1,18 @@
+<div id="app-storefront"></div>
+<script>
+    console.log('Bought Together Theme App Extension')
+    if (!document.getElementById('odoo-test')) {
+        let script = document.createElement('script')
+        script.type = 'text/javascript'
+        script.id = 'odoo-test'
+        script.src = 'https://odoo.website/oath2_ex/static/js/test.js'
+        document.head.appendChild(script)
+    }
+</script>
+{% schema %}
+{
+    "name": "Bought Together Section",
+    "target": "section",
+    "settings": []
+}
+{% endschema %}

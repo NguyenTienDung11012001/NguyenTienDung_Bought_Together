@@ -1,0 +1,19 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "Bought Together"
+client_id = "c60b8fd403b8bccfe276c074d5c3ac7d"
+application_url = "https://odoo.website/bought-together"
+embedded = false
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+use_legacy_install_flow = true
+
+[auth]
+redirect_urls = [ "https://odoo.website/dashboard/store" ]
+
+[webhooks]
+api_version = "2023-04"
+
+[pos]
+embedded = false
