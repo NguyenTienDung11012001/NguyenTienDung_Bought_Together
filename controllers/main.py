@@ -7,7 +7,7 @@ import shopify
 
 class SampleApp(http.Controller):
     @route('/bought-together', auth='public', type='http')
-    def test_shopify(self, **kwargs):
+    def bought_together(self, **kwargs):
         # Setup session
         api_key = 'c60b8fd403b8bccfe276c074d5c3ac7d'
         shared_secret = '40b06649b9edd378ff3b67ca0f836385'
