@@ -11,9 +11,6 @@ module.exports = (env) => {
             index: {
                 import: './app.js',
             },
-            shopify_frontend: {
-                import: './front_end.js',
-            },
             test: {
                 import: './test.js'
             },
