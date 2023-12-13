@@ -1,0 +1,115 @@
+:root {
+    --background-color: #F4F4F4;
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 36px;
+    height: 29px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    border-radius: 6px;
+    border-color: #939393;
+    min-height: 44px;
+}
+
+.btn {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border-radius: 6px;
+    border: 1px solid var(--Neutral-40, #D1D1D1);
+    background: var(--Neutral-10, #FDFDFD);
+    color: var(--Neutral-100, #1C1C1E);
+    font-family: Be Vietnam Pro;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px; /* 142.857% */
+}
+
+.btn.primary {
+    background: var(--Neutral-100, #1C1C1E);
+    color: var(--Neutral-10, #FDFDFD);
+}
+
+.btn:hover{
+    cursor: pointer;
+    color: #40a9ff;
+    transition: .1s linear;
+    
+}
+
+.main-comp{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+    width: 100%;
+}
+
+.main-comp > .title {
+    color: #000;
+    font-family: Kanit;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+} 
+
+.main-comp > .setting-title{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-comp > .setting-title > span {
+    color: #000;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;  
+}
+
+.main-comp > .setting-title > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+} 
+
+.main-comp-body{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+.main-comp-item{
+    width: 100%;
+    display: flex; 
+    padding: 16px 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    border: 1px solid #E2E2E2;
+    background: #FFF; 
+}
+
+.disabled-row {
+    pointer-events: none;
+    color: #dcdcdc;
+}
