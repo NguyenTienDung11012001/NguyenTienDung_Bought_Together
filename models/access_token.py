@@ -67,7 +67,7 @@ class ModelName(models.Model):
         return res
 
     def connect_xero(self):
-        client_id = 'C1057113036B42BB827382B4BB0F24DF'
+        client_id = self.env['ir.config_parameter'].sudo().get_param('oath2_ex.xero_client_id')
         state = self.id
         url = f'https://login.xero.com/identity/connect/authorize?response_type=code&client_id={client_id}&redirect_uri=https%3A%2F%2Fodoo.website%2Ftest-xero%2Ffinalize&scope=openid profile email accounting.transactions accounting.contacts accounting.settings offline_access&state={state}'
         return {

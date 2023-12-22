@@ -6,9 +6,9 @@ class ShopifyProduct(models.Model):
     _description = 'shopify products'
 
     name = fields.Char('Name')
-    price = fields.Integer('Price')
+    price = fields.Float('Price')
     product_id = fields.Char('Shopify product id')
     shop_id = fields.Many2one('access.token', string='Shop')
     url = fields.Char('Image Url')
-    compare = fields.Integer('Compare')
+    compare = fields.Float('Compare')
     quantity = fields.Integer('Quantity')

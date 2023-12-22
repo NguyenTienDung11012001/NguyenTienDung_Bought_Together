@@ -9,3 +9,4 @@ from . import fetch_history
 from . import xero_token
 from . import xero_post_history
 from . import bt_widget
+from . import res_config_settings

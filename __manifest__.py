@@ -31,6 +31,7 @@
         'views/shopify_order_view.xml',
         'views/xero_token_view.xml',
         'views/templates.xml',
+        'views/res_config_views.xml',
         'wizard/fetch_shopify_view.xml',
     ],
     'assets': {

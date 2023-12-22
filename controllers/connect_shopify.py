@@ -1,4 +1,3 @@
-import odoo.odoo.http
 from odoo import http
 import werkzeug
 import shopify
@@ -10,13 +9,13 @@ class ShopifyAPI(http.Controller):
     @route('/test-shopify', auth='public', type='http')
     def test_shopify(self, **kwargs):
         # Setup session
-        api_key = 'c755092526e32bb09b8c9afa8b1b34d6'
-        shared_secret = 'fdb10b3c36c7d01e488c590bf8296e08'
+        api_key = request.env['ir.config_parameter'].sudo().get_param('oath2_ex.shopify_api_key')
+        shared_secret = request.env['ir.config_parameter'].sudo().get_param('oath2_ex.shopify_secret_key')
         shopify.Session.setup(api_key=api_key, secret=shared_secret)
 
         # Create session
         shop_url = kwargs['shop']
-        api_version = '2023-04'
+        api_version = request.env['ir.config_parameter'].sudo().get_param('oath2_ex.shopify_api_version')
         new_session = shopify.Session(shop_url, api_version)
 
         # Redirect to authenticate
@@ -30,13 +29,13 @@ class ShopifyAPI(http.Controller):
     def test_shopify_finalize(self, **kwargs):
         try:
             # Setup session
-            api_key = 'c755092526e32bb09b8c9afa8b1b34d6'
-            shared_secret = 'fdb10b3c36c7d01e488c590bf8296e08'
+            api_key = request.env['ir.config_parameter'].sudo().get_param('oath2_ex.shopify_api_key')
+            shared_secret = request.env['ir.config_parameter'].sudo().get_param('oath2_ex.shopify_secret_key')
             shopify.Session.setup(api_key=api_key, secret=shared_secret)
 
             # Create session
             shop_url = kwargs['shop']
-            api_version = '2023-04'
+            api_version = request.env['ir.config_parameter'].sudo().get_param('oath2_ex.shopify_api_version')
             session = shopify.Session(shop_url, api_version)
 
             # get access token
@@ -47,7 +46,7 @@ class ShopifyAPI(http.Controller):
             shopify.ShopifyResource.activate_session(session)
 
             # Manage Webhook
-            address = 'https://f081-116-97-240-10.ngrok-free.app'
+            address = request.env['ir.config_parameter'].sudo().get_param('oath2_ex.shopify_webhook_base_url')
             webhook = shopify.Webhook.find()
 
             # Destroy webhook because address changed
