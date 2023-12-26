@@ -13,8 +13,8 @@ class XeroAPI(http.Controller):
     @route('/test-xero/finalize', type="http", auth="public", website=True)
     def test_xero(self, **kwargs):
         # Define your client_id and client_secret
-        client_id = 'C1057113036B42BB827382B4BB0F24DF'
-        client_secret = 'IVoMSF2QnPfdeWhImsIsUkZadkA1xrMZnLanDdoFB_ARNNJ9'
+        client_id = request.env['ir.config_parameter'].sudo().get_param('oath2_ex.xero_client_id')
+        client_secret = request.env['ir.config_parameter'].sudo().get_param('oath2_ex.xero_client_secret')
 
         # Base64 encode client_id and client_secret for the Authorization header
         credentials = f"{client_id}:{client_secret}"

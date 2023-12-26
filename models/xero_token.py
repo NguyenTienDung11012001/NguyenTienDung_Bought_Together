@@ -28,8 +28,8 @@ class ModelName(models.Model):
 
     def reconnect_xero(self):
         if self.refresh_token_time_out > datetime.datetime.now():
-            client_id = 'C1057113036B42BB827382B4BB0F24DF'
-            client_secret = 'IVoMSF2QnPfdeWhImsIsUkZadkA1xrMZnLanDdoFB_ARNNJ9'
+            client_id = self.env['ir.config_parameter'].sudo().get_param('oath2_ex.xero_client_id')
+            client_secret = self.env['ir.config_parameter'].sudo().get_param('oath2_ex.xero_client_secret')
             credentials = f"{client_id}:{client_secret}"
             base64_credentials = base64.b64encode(credentials.encode()).decode()
 
